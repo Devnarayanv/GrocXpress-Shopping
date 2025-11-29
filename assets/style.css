@@ -1,0 +1,222 @@
+body {
+    margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif;
+    background: var(--bg);
+}
+
+:root {
+    --bg: #ffffff;
+    --panel: #ffffff;
+    --text: #333333;
+    --muted: #6c757d;
+    --accent: #007bff;
+    --accent-2: #0056b3;
+    --card-shadow: 0 4px 28px 0 rgba(0,123,255,0.1);
+    --btn-bg: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+/* Dark theme variables */
+html.dark,
+body.dark-mode {
+    /* Modern deep-dark theme with blue accents */
+    --bg: #001122;            /* dark blue background */
+    --panel: #002244;         /* elevated panels */
+    --text: #ffffff;          /* main text */
+    --muted: #9aa6bf;         /* secondary text */
+    --accent: #4a90e2;        /* blue accent */
+    --accent-2: #357abd;      /* darker blue accent */
+    --card-shadow: 0 8px 30px rgba(0,0,0,0.75);
+    --btn-bg: linear-gradient(135deg,#4a90e2,#357abd);
+}
+
+/* Strong overrides for pages that use inline styles or page-specific CSS
+   These are intentionally limited to root/background/text/panel colors to avoid
+   breaking page layouts. Use sparingly. */
+html.dark, body.dark-mode {
+    background: var(--bg) !important;
+    color: var(--text) !important;
+}
+html.dark .panel, body.dark-mode .panel,
+html.dark .center-box, body.dark-mode .center-box,
+html.dark .product-card, body.dark-mode .product-card,
+html.dark footer, body.dark-mode footer {
+    background: var(--panel) !important;
+    color: var(--text) !important;
+    box-shadow: var(--card-shadow) !important;
+}
+
+/* Page-specific readable overrides for main.php-like layouts */
+html.dark .top-header, body.dark-mode .top-header {
+    background: #0b0b0b !important;
+    color: #e6eef8 !important;
+    border-bottom: 1px solid rgba(255,255,255,0.04) !important;
+}
+html.dark header, body.dark-mode header {
+    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)) !important;
+    color: var(--text) !important;
+    border-bottom: 1px solid rgba(255,255,255,0.04) !important;
+}
+html.dark .search-bar input, body.dark-mode .search-bar input {
+    background: rgba(255,255,255,0.02) !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    color: var(--text) !important;
+}
+html.dark .search-bar button, body.dark-mode .search-bar button {
+    background: var(--accent) !important;
+    color: #fff !important;
+    border: none !important;
+}
+html.dark .nav-icons a, body.dark-mode .nav-icons a, html.dark .nav-icons button, body.dark-mode .nav-icons button {
+    color: var(--muted) !important;
+}
+html.dark .product-card, body.dark-mode .product-card {
+    background: #0b0b0b !important;
+    color: var(--text) !important;
+}
+
+
+/* Top-right header theme toggle (shared across pages) */
+.header .theme-toggle, .auth-buttons #theme-toggle {
+    background: transparent;
+    border: 1px solid rgba(0,0,0,0.08);
+    padding: 8px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 1rem;
+}
+.auth-buttons #theme-toggle { margin-left: 8px; }
+
+/* Dark-mode appearance for the toggle */
+html.dark .header .theme-toggle, body.dark-mode .header .theme-toggle,
+html.dark .auth-buttons #theme-toggle, body.dark-mode .auth-buttons #theme-toggle {
+    background: rgba(255,255,255,0.04) !important;
+    border-color: rgba(255,255,255,0.06) !important;
+    color: var(--text) !important;
+}
+
+/* Accessibility: ensure high contrast for body text, links, inputs, table cells in dark mode */
+html.dark a, body.dark-mode a { color: var(--accent-2) !important; }
+html.dark input[type="text"], body.dark-mode input[type="text"],
+html.dark input[type="email"], body.dark-mode input[type="email"],
+html.dark input[type="password"], body.dark-mode input[type="password"],
+html.dark textarea, body.dark-mode textarea {
+    background: rgba(255,255,255,0.03) !important;
+    border: 1px solid rgba(255,255,255,0.06) !important;
+    color: var(--text) !important;
+}
+
+html.dark table, body.dark-mode table { color: var(--text) !important; }
+html.dark th, body.dark-mode th, html.dark td, body.dark-mode td {
+    border-color: rgba(255,255,255,0.04) !important;
+}
+
+/* Make sure admin side nav and cards have readable contrast */
+html.dark .side-nav a { color: #fff !important; }
+html.dark .admin-btn, body.dark-mode .admin-btn { background: var(--btn-bg) !important; color: #fff !important; }
+
+
+/* Buttons and links in dark mode */
+html.dark .btn, body.dark-mode .btn,
+html.dark .animated-btn, body.dark-mode .animated-btn,
+html.dark .admin-btn, body.dark-mode .admin-btn {
+    background: var(--btn-bg) !important;
+    color: #fff !important;
+    box-shadow: 0 6px 20px rgba(124,92,255,0.12) !important;
+    border: none !important;
+}
+html.dark a, body.dark-mode a { color: var(--accent-2) !important; }
+html.dark .section-title, body.dark-mode .section-title { color: var(--accent) !important; }
+
+.header {
+    background: var(--accent);
+    color: #fff;
+    padding: 2rem 1rem 1rem;
+    text-align: center;
+}
+
+/* Theme toggle removed (site forces dark mode) */
+
+.center-box {
+    width: 350px;
+    margin: 3rem auto;
+    padding: 2rem 2rem 1.5rem;
+    background: var(--panel);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    animation: fade-pop 1.2s;
+}
+.center-box.small { width: 300px; }
+
+.animated-btn {
+    background: var(--btn-bg);
+    color: var(--text);
+    border: none;
+    padding: 12px 32px;
+    font-size: 1.2rem;
+    border-radius: 25px;
+    margin: 12px 6px;
+    cursor: pointer;
+    box-shadow: 0 2px 6px #eee;
+    transition: background 0.25s, transform 0.25s;
+}
+.animated-btn:hover {
+    background: var(--accent-2);
+    color: #fff;
+    transform: scale(1.06);
+}
+
+.nav-link { text-decoration: none; color: #00509e; margin: 0 5px; font-weight: bold; }
+.nav-link:hover { text-decoration: underline;}
+
+.product-grid {
+    margin: 2rem auto; max-width: 1100px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 24px;
+}
+.product-card {
+    background: var(--panel);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    text-align: center;
+    padding: 1rem 0.8rem;
+    transition: box-shadow 0.3s, transform 0.3s;
+    position: relative;
+}
+.product-card:hover, .product-card:focus {
+    box-shadow: 0 8px 32px 0 #72a7ff22;
+    z-index: 1;
+    transform: scale(1.025);
+}
+
+.product-image {
+    width: 130px; height: 130px;
+    object-fit: cover; border-radius: 6px;
+    margin-bottom: 0.7rem;
+    transition: transform .3s, filter .3s;
+}
+.product-image:hover {
+    transform: scale(1.1);
+    filter: brightness(1.1);
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    width: 92%; padding: 9px; margin: 0.5rem 0; border: 1px solid #bbb; border-radius: 5px;
+    font-size: 1rem;
+}
+
+/* Stronger focus indicator for accessibility and clear typing state */
+.input-field:focus, .select-field:focus, .textarea-field:focus {
+    background: rgba(76,175,80,0.02) !important;
+    border-color: var(--primary-green) !important;
+}
+.err { color: #b52b2b; margin: 10px 0;}
+.succ { color: #218838; margin: 10px 0;}
+
+@keyframes fade-pop {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temp Login Shortcut</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f9fafb;
+            font-family: Arial, sans-serif;
+        }
+        button {
+            padding: 16px 38px;
+            margin: 20px;
+            font-size: 1.2rem;
+            border-radius: 25px;
+            border: none;
+            background: #1271e3;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.2s, box-shadow 0.2s, transform 0.2s;
+            box-shadow: 0 2px 8px #0001;
+        }
+        button:hover {
+            background: #ffb300;
+            color: #232323;
+            transform: scale(1.08);
+        }
+    </style>
+</head>
+<body>
+    <button onclick="location.href='admin/admin_dashboard.php'">Admin Login</button>
+    <button onclick="location.href='main.php'">User Login</button>
+</body>
+</html>
